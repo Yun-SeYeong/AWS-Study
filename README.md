@@ -24,7 +24,7 @@ Amazone CloudFront는 .html, .css, .js 등 정적 및 동적 컨텐츠를 더 �
 
 Amazon Virtual Private Cloud(Amazon VPC)를 이용하면 사용자가 정의한 가상 네트워크로 AWS의 리소스들을 이용할 수 있다. 이 가상 네트워크는 AWS의 확장 가능한 인프라를 사용한다는 이점이 있다. VPC는 서브넷을 구성하고 IP주소를 지정 할 수 있으며 라우팅 테이블을 이용하여 트레픽을 제한 할 수 도 있다.
 
-## EC2
+### EC2
 
 Amazon Elastic Compute Cloud(Amazon EC2)는 클라우드에 확장가능한 컴퓨팅 용량을 제공하는 서비스이다. 초기 투자 없이 빠르게 서비스를 배포할 수 있다. 또한 원하는 수의 가상 서버를 구축하고 Amazon의 리소스들을 같이 활용하여 관리할 수 있다.
 
