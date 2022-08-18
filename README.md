@@ -60,34 +60,22 @@ VPC를 통해 각 서버별 Subnet을 구성하고 EC2 인스턴스를 생성한
 
 마지막으로 로드벨런서를 트레픽을 분산처리한다. public과 private을 구분하여 로드밸런서를 만드는데 둘다 인터넷과 연결되어야 하기 때문에 public subnet을 이용하여 각 인스턴스에 연결되도록 한다. 
 
-
-
-
-
 ## 관계형 데이터베이스 서비스 구성
-
-
 
 ### RDS
 
 Amazon Relational Database Service(Amazon RDS)는 AWS 클라우드에서 관계형 데이터베이스를 쉽게 설치, 운영 및 확장을 지원하는 웹서비스이다. 서브넷 그룹을 이용해서 서브넷을 지정하고 이중화를 하면 각 서브넷에 RDB가 생성되고 active-standby 형태로 이중화된다.
 
-
-
 ### ReadReplica
 
 RDS는 읽기 전용 복제본을 생성할 수 있다. 생성하면 기존 RDB의 내용이 모두 연동된 DB가 생성되고 읽기가 가능해 진다.
-
-
 
 ### Reboot with Failover
 
 이중화된 RDS에 reboot를 하면 기존 active 되어있던 DB는 내려가고 standby되어있던 DB가 active되면서 정상적으로 이중화가 될 수 있다.
 
-
-
 ### RDS Service 구성
 
-![image3.png](/Users/yunseyeong/Documents/workspace/marktext/AWS-Study/image3.png)
+![image3.png](./image3.png)
 
 위 처럼 private-subnet 두개를 서브넷 그룹으로 만들고 RDS에서 다중 인스턴스를 설정하면 위와 같이 하나는 Master로 하나는 Standby로 동작하게된다. 만약 하나에서 장애가 발생하면 다른 한쪽에서 정상적으로 서비스가 가능해진다. ReadReplica를 생성하면 해당 DB를 읽기 전용으로 복제하게 된다. 원본 DB에 데이터가 생성되면 복제된 DB에도 반영된다.
